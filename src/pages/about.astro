@@ -5,13 +5,15 @@ import ContactCTA from '../components/ContactCTA.astro'
 import Hero from '../components/Hero.astro'
 ---
 
-<BaseLayout
-    title="About | Jeanine White"
-    description="About Jeanine White Lorem Ipsum"
->
+<BaseLayout title="About | Jeanine White" description="About Jeanine White Lorem Ipsum">
     <div class="flex flex-col gap-20">
         <main class="w-full">
             <Hero title="My Story" />
         </main>
+    </div>
+    <div class="mx-auto mt-10 flex w-8/12 flex-col items-center">
+        <div class="flex h-10 w-full flex-row bg-red-700">
+            <div></div>
+        </div>
     </div>
 </BaseLayout>

@@ -1,66 +1,73 @@
 ---
-import Icon from './Icon.astro';
-import ThemeToggle from './ThemeToggle.astro';
-import type { iconPaths } from './IconPaths';
+import Icon from './Icon.astro'
+import ThemeToggle from './ThemeToggle.astro'
+import type { iconPaths } from './IconPaths'
 
 /** Main menu items */
 const textLinks: { label: string; href: string }[] = [
-	{ label: 'Home', href: '/' },
-	{ label: 'Work', href: '/work/' },
-	{ label: 'About', href: '/about/' },
-];
+    { label: 'Home', href: '/' },
+    { label: 'Work', href: '/work/' },
+    { label: 'About', href: '/about/' },
+]
 
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
-	{ label: 'Twitter', href: 'https://twitter.com/me', icon: 'twitter-logo' },
-	{ label: 'Twitch', href: 'https://twitch.tv/me', icon: 'twitch-logo' },
-	{ label: 'GitHub', href: 'https://github.com/me', icon: 'github-logo' },
-	{ label: 'CodePen', href: 'https://codepen.io/me', icon: 'codepen-logo' },
-	{ label: 'dribbble', href: 'https://dribbble.com/me', icon: 'dribbble-logo' },
-	{ label: 'YouTube', href: 'https://www.youtube.com/@me/', icon: 'youtube-logo' },
-];
+    { label: 'Twitter', href: 'https://twitter.com/me', icon: 'twitter-logo' },
+    { label: 'Twitch', href: 'https://twitch.tv/me', icon: 'twitch-logo' },
+    { label: 'GitHub', href: 'https://github.com/me', icon: 'github-logo' },
+    { label: 'CodePen', href: 'https://codepen.io/me', icon: 'codepen-logo' },
+    { label: 'dribbble', href: 'https://dribbble.com/me', icon: 'dribbble-logo' },
+    { label: 'YouTube', href: 'https://www.youtube.com/@me/', icon: 'youtube-logo' },
+]
 ---
 
-<nav class="backdrop-blur-xl z-50 relative font-[Rubik] font-medium mb-14 grid grid-cols-[1fr_auto_1fr] items-center gap-4 py-4 px-8">
-	<div class="menu-header">
-		<a href="/" class="site-title">
-			<Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
-		</a>
-	</div>
-	<div class="contents">
-		<ul class="relative flex flex-row text-sm rounded-full px-2 py-2 border-0 shadow-2xl bg-[radial-gradient(var(--gray-900),var(--gray-800)_150%)] ">
-			{
-				textLinks.map(({ label, href }) => (
-					<li>
-						<a
-							aria-current={Astro.url.pathname === href}
-							class:list={[
-								'inline-block px-4 py-2 text-gray-400 rounded-full transition-all hover:bg-gray-300',
-								{
-									"bg-purple-600 text-gray-50":
-										Astro.url.pathname === href ||
-										(href !== '/' && Astro.url.pathname.startsWith(href)),
-								},
-							]}
-							href={href}
-						>
-							{label}
-						</a>
-					</li>
-				))
-			}
-		</ul>
-		<div class="justify-self-end items-center p-4 bg-transparent">
-			<div class="flex flex-row gap-2 text-xl">
-				{
-					iconLinks.map(({ href, icon, label }) => (
-						<a href={href} class="social hover:bg-gray-700 rounded-full p-1 hover:scale-150 transition-transform">
-							<span class="sr-only hidden">{label}</span>
-							<Icon icon={icon} />
-						</a>
-					))
-				}
-			</div>
-		</div>
-	</div>
+<nav
+    class="relative z-50 mb-14 grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-8 py-4 font-[Rubik] font-medium backdrop-blur-xl"
+>
+    <div class="menu-header">
+        <a href="/" class="site-title">
+            <Icon icon="terminal-window" color="var(--accent-regular)" size="1.6em" gradient />
+        </a>
+    </div>
+    <div class="contents">
+        <ul
+            class="relative flex flex-row rounded-full border-0 bg-[radial-gradient(var(--gray-900),var(--gray-800)_150%)] px-2 py-2 text-sm shadow-2xl"
+        >
+            {
+                textLinks.map(({ label, href }) => (
+                    <li>
+                        <a
+                            aria-current={Astro.url.pathname === href}
+                            class:list={[
+                                'inline-block rounded-full px-4 py-2 text-gray-400 transition-all hover:bg-gray-300',
+                                {
+                                    'bg-purple-600 text-gray-50':
+                                        Astro.url.pathname === href ||
+                                        (href !== '/' && Astro.url.pathname.startsWith(href)),
+                                },
+                            ]}
+                            href={href}
+                        >
+                            {label}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+        <div class="items-center justify-self-end bg-transparent p-4">
+            <div class="flex flex-row gap-2 text-xl">
+                {
+                    iconLinks.map(({ href, icon, label }) => (
+                        <a
+                            href={href}
+                            class="social rounded-full p-1 transition-transform hover:scale-150 hover:bg-gray-700"
+                        >
+                            <span class="sr-only hidden">{label}</span>
+                            <Icon icon={icon} />
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
 </nav>
