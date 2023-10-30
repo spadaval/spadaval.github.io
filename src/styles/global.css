@@ -197,10 +197,6 @@ h5 {
 	padding-inline: 1.5rem;
 }
 
-.stack {
-	display: flex;
-	flex-direction: column;
-}
 
 .gap-2 {
 	gap: 0.5rem;
