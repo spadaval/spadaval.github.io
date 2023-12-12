@@ -1,13 +1,18 @@
 ---
 title: Compiler
 publishDate: 2019-10-02 00:00:00
-img: /assets/stock-4.jpg
-img_alt: Soft pink and baby blue water ripples together in a subtle texture.
+img: /assets/smplc.png
+img_alt: The control-flow graph generated for a simple bubble-sort algorithm. 
 description: |
-    We developed brand positioning and design assets for the launch
-    of a new colored water product.
+    I wrote a compiler that can translate a simplified language to a LLVM-like IR and generate control-flow graphs.
 tags:
     - Compiler
     - Systems
+    - Rust
+badge: /assets/badge/uci.png
 ---
 https://github.com/spadaval/smplc
+
+This compiler takes in programs in SMPL (a made-up language) and produces control-flow graphs.
+
+The whole compiler is written in Rust. The output is in graphviz (dot) format.

@@ -7,18 +7,23 @@ import type { iconPaths } from './IconPaths'
 const textLinks: { label: string; href: string }[] = [
     { label: 'Home', href: '/' },
     { label: 'Work', href: '/work/' },
-    { label: 'About', href: '/about/' },
 ]
 
 /** Icon links to social media — edit these with links to your profiles! */
 const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[] = [
     { label: 'GitHub', href: 'https://github.com/spadaval', icon: 'github-logo' },
     { label: 'CodePen', href: 'https://codepen.io/hybrideagle', icon: 'codepen-logo' },
+    {
+        label: 'LinkedIn',
+        href: 'https://www.linkedin.com/in/sumeet-padavala/',
+        icon: 'linkedin-logo',
+    },
 ]
 ---
 
 <nav
     class="relative z-50 mb-14 grid grid-cols-[1fr_auto_1fr] items-center gap-4 px-8 py-4 font-[Rubik] font-medium backdrop-blur-xl"
+    transition:animate="slide"
 >
     <div class="menu-header">
         <a href="/" class="site-title">
@@ -35,12 +40,11 @@ const iconLinks: { label: string; href: string; icon: keyof typeof iconPaths }[]
                         <a
                             aria-current={Astro.url.pathname === href}
                             class:list={[
-                                'inline-block rounded-full px-4 py-2 text-gray-400 transition-all hover:bg-gray-300',
-                                {
-                                    'bg-purple-600 text-gray-50':
-                                        Astro.url.pathname === href ||
-                                        (href !== '/' && Astro.url.pathname.startsWith(href)),
-                                },
+                                'transition-al inline-block rounded-full px-4 py-2 text-gray-400',
+                                Astro.url.pathname === href ||
+                                (href !== '/' && Astro.url.pathname.startsWith(href))
+                                    ? 'bg-purple-600 text-gray-50'
+                                    : 'hover:bg-gray-800',
                             ]}
                             href={href}
                         >

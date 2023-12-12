@@ -46,7 +46,7 @@ const { Content } = await entry.render()
             <main class="wrapper">
                 <div class="content flex flex-col gap-10">
                     {entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />}
-                    <div class="content">
+                    <div class="prose prose-invert">
                         <Content />
                     </div>
                 </div>
